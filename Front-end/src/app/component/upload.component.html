@@ -1,0 +1,28 @@
+<div class="container">
+
+  <div class="card" style="width: 18rem;">
+    <img class="card-img-top" src=".../100px180/" alt="Imagem de capa do card">
+    <div class="card-body">
+      <h5 class="card-title">Título do card</h5>
+      <p class="card-text"></p>
+      <a href="#" class="btn btn-primary">Visitar</a>
+    </div>
+  </div>
+
+  <div class="mb-3 mt-3">
+    <input class="form-control" type="file" id="formFile" />
+  </div>
+
+  <div class="progress">
+    <div
+      class="progress-bar"
+      role="progressbar"
+      [ngStyle]="{ width: progresso }"
+      aria-valuenow="25"
+      aria-valuemin="0"
+      aria-valuemax="100"
+    >
+      {{ progresso }}
+    </div>
+  </div>
+</div>
