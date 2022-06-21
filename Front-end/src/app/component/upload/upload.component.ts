@@ -1,7 +1,7 @@
-import { uploadService } from 'src/app/service/upload.service';
 import { Component, OnInit } from '@angular/core';
 import { HttpEvent, HttpEventType } from '@angular/common/http';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { uploadService } from './../../service/upload.service';
 import data from '../../../assets/data.json'
 
 @Component({
@@ -12,8 +12,8 @@ import data from '../../../assets/data.json'
 export class UploadComponent implements OnInit{
   form: FormGroup;
   progress: number = 0;
-  info:any;
-  resUpload:any = data;
+  infoFile:any;
+  resUpload = data;
   index:number = 0;
 
   constructor(
@@ -25,14 +25,15 @@ export class UploadComponent implements OnInit{
     })
   }
 
-  ngOnInit() { }
+  ngOnInit() {}
+
   uploadFile(event:any) {
     const file = (event.target as HTMLInputElement).files![0];
     this.form.patchValue({
       archive: file
     });
     this.form.get('archive')?.updateValueAndValidity()
-    this.info = file;
+    this.infoFile = file;
     this.index = 1;
     console.log(file)
   }
@@ -58,10 +59,6 @@ export class UploadComponent implements OnInit{
               this.index = 2;
               this.progress = 0;
             }, 1500);
-          }
-          console.log(this.form.value.archive)
-          if(this.form.value.archive == undefined){
-            this.index = 2;
           }
         },(error)=>{
           this.index = 3;

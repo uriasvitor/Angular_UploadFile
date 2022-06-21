@@ -1,18 +1,14 @@
 const express = require('express');
 const cors = require('cors')
 const app = express();
-const bodyParser = require("body-parser");
 const  multipart  =  require('connect-multiparty');
+
 const multipartMiddleware = multipart({
     uploadDir: './uploads'
 });
 
 app.use(cors())
 app.use(express.json())
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({
-    extended: true
-}));
 
 app.get('/',(req,res)=>{
     knex('upfile').select().then((result)=>{
@@ -29,9 +25,6 @@ app.post('/', multipartMiddleware, (req, res) => {
         'message': 'File uploaded succesfully.'
     });
 });
-
-const path = require('path')
-app.use('/static', express.static(path.join(uploads, 'public')))
 
 app.listen(6090,()=>{
     console.log('Servidor Iniciado');

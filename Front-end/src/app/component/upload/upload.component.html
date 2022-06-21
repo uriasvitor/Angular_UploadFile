@@ -3,15 +3,15 @@
 
     <div class="info-card">
       <div class="cardInfo">
-        <h5 class="info-title">Nome do Arquivo :
-          {{info.name}}</h5>
-        <p class="info-text">Ultima Modificação : {{info.lastModified | date}}</p>
-        <p class="info-text">Tamanho: {{info.size | sizeValue}}</p>
+        <h5 class="info-title">Nome do Arquivo : {{infoFile?.name}}
+          </h5>
+        <p class="info-text">Ultima Modificação : {{infoFile?.lastModified | date}}</p>
+        <p class="info-text">Tamanho: {{infoFile?.size | sizeValue}}</p>
       </div>
     </div>
 
     <div class="form-group mt-4">
-      <button class="btn btn-danger btn-block" [disabled]="!this.form.value.archive">Enviar</button>
+      <button class="btn" [disabled]="!this.form.value.archive">Enviar</button>
     </div>
     <div class="form-group mt-4" >
       <input type="file" class="custom-file-input" (change)="uploadFile($event)">
