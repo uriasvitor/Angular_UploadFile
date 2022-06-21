@@ -11,7 +11,7 @@
       },
       {
         "phrase": "Arquivo enviado com sucesso!",
-        "color": "black"
+        "color": "green"
       },
       {
         "phrase": "Ocorreu um Erro!",

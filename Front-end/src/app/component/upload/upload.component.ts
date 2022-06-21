@@ -12,7 +12,7 @@ import data from '../../../assets/data.json'
 export class UploadComponent implements OnInit{
   form: FormGroup;
   progress: number = 0;
-  info:string = '';
+  info:any;
   resUpload:any = data;
   index:number = 0;
 
@@ -32,7 +32,9 @@ export class UploadComponent implements OnInit{
       archive: file
     });
     this.form.get('archive')?.updateValueAndValidity()
+    this.info = file;
     this.index = 1;
+    console.log(file)
   }
 
   submitFile() {
@@ -53,6 +55,7 @@ export class UploadComponent implements OnInit{
           case HttpEventType.Response:
             console.log('successfully!', event.body);
             setTimeout(() => {
+              this.index = 2;
               this.progress = 0;
             }, 1500);
           }

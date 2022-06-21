@@ -30,6 +30,9 @@ app.post('/', multipartMiddleware, (req, res) => {
     });
 });
 
+const path = require('path')
+app.use('/static', express.static(path.join(uploads, 'public')))
+
 app.listen(6090,()=>{
     console.log('Servidor Iniciado');
 })

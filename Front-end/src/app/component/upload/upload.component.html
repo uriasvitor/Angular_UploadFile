@@ -1,10 +1,12 @@
 <div class="container">
   <form [formGroup]="form" (ngSubmit)="submitFile()">
-    <div class="card mt-5" style="width: 18rem;">
-      <img class="card-img-top" src=".../100px180/" alt="Imagem de capa do card">
-      <div class="card-body">
-        <h5 class="card-title">File Name: {{info}}</h5>
-        <p class="card-text">Last modified: {{info| date }}</p>
+
+    <div class="info-card">
+      <div class="cardInfo">
+        <h5 class="info-title">Nome do Arquivo :
+          {{info.name}}</h5>
+        <p class="info-text">Ultima Modificação : {{info.lastModified | date}}</p>
+        <p class="info-text">Tamanho: {{info.size | sizeValue}}</p>
       </div>
     </div>
 
