@@ -1,9 +1,18 @@
 const express = require('express');
 const cors = require('cors')
 const app = express();
-const knex = require('./mysql')
+const bodyParser = require("body-parser");
+const  multipart  =  require('connect-multiparty');
+const multipartMiddleware = multipart({
+    uploadDir: './uploads'
+});
 
+app.use(cors())
 app.use(express.json())
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
 
 app.get('/',(req,res)=>{
     knex('upfile').select().then((result)=>{
@@ -15,21 +24,13 @@ app.get('/',(req,res)=>{
 
 })
 
+app.post('/', multipartMiddleware, (req, res) => {
+    res.json({
+        'message': 'File uploaded succesfully.'
+    });
+});
 
-app.post('/',(req,res)=>{
-    if(typeof req.body.up_size != number){
-        return res.status.send('tem que ser um numero')
-    }
-
-    knex('upfile').insert(req.body).then(()=>{
-        res.send('deu bom')
-    }).catch((error)=>{
-        res.status(500).send('askodp')
-        console.log('deu ruim',error)
-    })
-    
-})
-app.listen(8080,()=>{
+app.listen(6090,()=>{
     console.log('Servidor Iniciado');
 })
 

@@ -1,0 +1,26 @@
+<div class="container">
+  <form [formGroup]="form" (ngSubmit)="submitFile()">
+    <div class="card mt-5" style="width: 18rem;">
+      <img class="card-img-top" src=".../100px180/" alt="Imagem de capa do card">
+      <div class="card-body">
+        <h5 class="card-title">File Name: {{info?.name}}</h5>
+        <p class="card-text">Last modified: {{info?.lastModified | date }}</p>
+      </div>
+    </div>
+
+    <div class="form-group mt-4">
+      <button class="btn btn-danger btn-block" [disabled]="!this.form.value.archive">Enviar</button>
+    </div>
+    <div class="form-group mt-4" >
+      <input type="file" (change)="uploadFile($event)">
+    </div>
+    <div class="notfound m-2">{{information}}</div>
+
+    <div class="progress form-group mt-4" *ngIf="progress > 0">
+        <div class="progress-bar progress-bar-striped bg-success" role="progressbar" [style.width.%]="progress">
+          {{progress}}
+        </div>
+    </div>
+
+  </form>
+</div>
