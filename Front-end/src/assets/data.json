@@ -1,27 +1,26 @@
 [
   {
-    "case":[{
-      "phrase":"Nenhum arquivo foi selecionado",
-      "color":"red"
-    },
-    {
-      "phrase":"Arquivo Selecionado",
-      "color":"grey"
-    },
-    {
-      "phrase":"Arquivo enviado com sucesso!",
-      "color":"black"
-    },
-    {
-      "phrase":"Ocorreu um Erro!",
-      "color":"red"
-    },
-    {
-      "phrase":"Imagem Invalida ",
-      "color":"red"
-    }
-
-  ]
+    "case": [
+      {
+        "phrase": "Nenhum arquivo foi selecionado",
+        "color": "red"
+      },
+      {
+        "phrase": "Arquivo Selecionado",
+        "color": "grey"
+      },
+      {
+        "phrase": "Arquivo enviado com sucesso!",
+        "color": "black"
+      },
+      {
+        "phrase": "Ocorreu um Erro!",
+        "color": "red"
+      },
+      {
+        "phrase": "Imagem Invalida ",
+        "color": "red"
+      }
+    ]
   }
-
 ]
