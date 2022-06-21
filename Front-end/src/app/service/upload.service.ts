@@ -29,7 +29,7 @@ export class uploadService{
     }
     console.log(errorMessage);
     return throwError(() => {
-      return errorMessage;
+    return errorMessage;
     });
   }
 

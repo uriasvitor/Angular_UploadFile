@@ -1,8 +1,8 @@
 import { uploadService } from 'src/app/service/upload.service';
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { HttpEvent, HttpEventType } from '@angular/common/http';
 import { FormBuilder, FormGroup } from '@angular/forms';
-
+import data from '../../../assets/data.json'
 
 @Component({
   selector: 'app-upload',
@@ -11,14 +11,10 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 })
 export class UploadComponent implements OnInit{
   form: FormGroup;
-  notfound = false
   progress: number = 0;
   info:string = '';
-
-  information = [
-    'Nenhum arquivo selecionado',
-    'Enviado com SUCESSO!'
-  ]
+  resUpload:any = data;
+  index:number = 0;
 
   constructor(
     public fb: FormBuilder,
@@ -36,7 +32,7 @@ export class UploadComponent implements OnInit{
       archive: file
     });
     this.form.get('archive')?.updateValueAndValidity()
-    this.notfound = false;
+    this.index = 1;
   }
 
   submitFile() {
@@ -56,16 +52,16 @@ export class UploadComponent implements OnInit{
           break;
           case HttpEventType.Response:
             console.log('successfully!', event.body);
-
             setTimeout(() => {
               this.progress = 0;
             }, 1500);
           }
           console.log(this.form.value.archive)
           if(this.form.value.archive == undefined){
-            this.information[0];
-            this.notfound = true
+            this.index = 2;
           }
+        },(error)=>{
+          this.index = 3;
         })
   }
 }
