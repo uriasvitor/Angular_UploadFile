@@ -1,3 +1,6 @@
+![image](https://user-images.githubusercontent.com/81401104/179576840-8b2f370e-0cc4-4440-a722-87a867739271.png)
+
+
 # AngularUploadFile
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.0.
